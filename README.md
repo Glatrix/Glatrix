@@ -1,2 +1,2 @@
-![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=Glatrix&show_icons=true&bg_color=DEG,444444,444444)
-[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=Glatrix&bg_color=DEG,444444,444444)](https://github.com/anuraghazra/github-readme-stats)
+![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=Glatrix&show_icons=true&bg_color=DEG,660000,444444)
+[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=Glatrix&bg_color=DEG,660000,444444)](https://github.com/anuraghazra/github-readme-stats)
