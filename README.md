@@ -1,9 +1,6 @@
 <p align="center">
-  <img src="assets/hero.svg" width="100%" alt="GLATRIX, spelled out in selected bytes of a hex dump. Need at least 8 hours of research to function. C# and C++. Noll Pointerville, Voiderland.">
+  <a href="https://glatrix.github.io/Glatrix/"><img src="assets/profile.svg" width="100%" alt="GLATRIX, spelled out in a hex dump: need at least 8 hours of research to function. A rotating 3D knowledge graph of agents and tooling, local AI, machine learning, language tooling, web, services, .NET, graphics and engines, infra, runtime internals, process and IPC, native hooks, and bare metal. Animated panels for neural nets, computer vision, market forecasting and an x64 trampoline hook. Click to open the interactive terminal."></a>
 </p>
 <p align="center">
-  <img src="assets/graph.svg" width="100%" alt="A rotating 3D knowledge graph branching from GLATRIX. Local AI: llama.cpp, GGUF, quantized KV cache, speculative decoding, GPU offload, Jinja templates. Machine learning: backpropagation, Dense, Conv2D, SimpleRNN, Dropout, SGD, genetic training, embeddings, top-k sampling. Language tooling: lexer, parser, AST, tree-walking runtime, environments. Services: REST clients, SignalR, HttpListener, JSON models, NuGet packages. .NET: C#, .NET 8, .NET Framework, WinForms, P/Invoke, unsafe code. Runtime internals: CLR hosting, C++/CLI, Mono, IL2CPP, metadata APIs, internal calls, Unity. Process and IPC: DLL injection, DLL proxying, named pipes, memory-mapped files, x86 and x64. Native and graphics: C++, C, Win32, MSVC, MinHook, Kiero, Direct3D 11, DXGI, Dear ImGui.">
-</p>
-<p align="center">
-  <img src="assets/neural.svg" width="100%" alt="Neural nets in plain C#, with no frameworks: a network running forward and backward passes, a loss curve falling over epochs, and a top-k sampler choosing the next token.">
+  <a href="https://discord.com/users/888132698068119603"><img src="https://lanyard.cnrad.dev/api/888132698068119603?theme=dark&bg=0a0c10&borderRadius=14px&showDisplayName=true&hideActivity=whenNotUsed" width="100%" alt="Live Discord profile for glatrix"></a>
 </p>

@@ -1,0 +1,579 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>glatrix@voiderland</title>
+<meta name="description" content="An interactive terminal about Glatrix. Type help.">
+<meta name="theme-color" content="#0a0c10">
+<style>
+@font-face{font-family:CM;font-weight:400;src:url(data:font/woff;base64,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) format('woff')}@font-face{font-family:CM;font-weight:700;src:url(data:font/woff;base64,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) format('woff')}
+:root{--bg:#06080b;--card:#0a0c10;--edge:#1d222b;--text:#e9e6dc;--muted:#7d8794;--dim:#2b3442;--amber:#ffb000;--ice:#6fd3ff;--hot:#f6f4ec;--mint:#7ee8b2;--violet:#c49bff;--red:#ff6b6b}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:var(--bg);color:var(--text)}
+body{font:14px/1.55 CM,ui-monospace,Consolas,Menlo,monospace;display:flex;justify-content:center;padding:22px 12px;
+  background:radial-gradient(1200px 600px at 50% -10%,#121820 0,transparent 60%),var(--bg)}
+.win{width:100%;max-width:1000px;height:calc(100vh - 44px);background:var(--card);border:1px solid var(--edge);border-radius:14px;
+  display:flex;flex-direction:column;overflow:hidden;box-shadow:0 30px 90px rgba(0,0,0,.55)}
+.bar{display:flex;align-items:center;gap:12px;padding:12px 18px;border-bottom:1px solid var(--edge);color:var(--muted);font-size:12.5px}
+.bar .dot{width:8px;height:8px;border-radius:50%;background:#5fe08a;animation:pulse 2s ease-in-out infinite}
+.bar b{color:var(--text)}.bar .sp{flex:1}.bar a{color:var(--muted);text-decoration:none}.bar a:hover{color:var(--ice)}
+@keyframes pulse{50%{opacity:.25}}
+#term{flex:1;overflow-y:auto;padding:16px 20px 40px;cursor:text;scrollbar-color:#2b3442 transparent}
+.line{white-space:pre-wrap;word-break:break-word;min-height:1.55em}
+.u{color:var(--mint)}.h{color:var(--muted)}
+#in-line{display:flex}
+#cmd{flex:1;min-width:0;background:transparent;border:0;outline:0;color:var(--text);font:inherit;font-weight:700;padding:0;margin:0;caret-color:var(--amber)}
+.muted{color:var(--muted)}.amber{color:var(--amber)}.ice{color:var(--ice)}.mint{color:var(--mint)}.hot{color:var(--hot)}.violet{color:var(--violet)}.red{color:var(--red)}.b{font-weight:700}
+a{color:var(--ice)}
+.grid{display:grid;grid-template-columns:max-content 1fr;gap:1px 22px;margin:2px 0 6px 2ch}
+.panel{margin:8px 0 10px;max-width:900px}.panel img{width:100%;display:block;border-radius:14px}
+canvas{display:block;max-width:100%;border-radius:14px;touch-action:none}
+pre{margin:6px 0;font:inherit}
+pre.art{line-height:1.08;font-size:13px;background:linear-gradient(90deg,var(--amber),var(--hot) 50%,var(--ice));-webkit-background-clip:text;background-clip:text;color:transparent}
+pre.code{color:#9fe3a8;line-height:1.45;max-height:60vh;overflow:hidden;font-size:13px}
+.card{display:flex;gap:16px;align-items:center;border:1px solid var(--edge);border-radius:14px;padding:16px;max-width:560px;margin:8px 0;text-decoration:none;color:var(--text);background:#0d1016;transition:border-color .2s}
+.card:hover{border-color:var(--ice)}
+.card .av{position:relative;flex:none}.card .av img{width:72px;height:72px;border-radius:50%;display:block}
+.card .av i{position:absolute;right:0;bottom:2px;width:18px;height:18px;border-radius:50%;border:3px solid #0d1016}
+.card .nm{font-weight:700;font-size:16px}.card .sub{color:var(--muted);font-size:12.5px}
+.granted{display:inline-block;margin:8px 0;padding:10px 18px;border:2px solid var(--mint);color:var(--mint);font-weight:700;letter-spacing:.2em;animation:blink .5s steps(1) 6}
+@keyframes blink{50%{opacity:0}}
+.hint{color:var(--muted);font-size:12px}
+@media (max-width:600px){body{padding:0}.win{height:100vh;border-radius:0;border:0}#term{padding:12px}body{font-size:13px}}
+</style>
+</head>
+<body>
+<div class="win">
+  <div class="bar"><span class="dot"></span><b>glatrix@voiderland</b><span>interactive terminal</span><span class="sp"></span><a href="https://github.com/Glatrix">github.com/Glatrix</a></div>
+  <div id="term">
+    <div id="out"></div>
+    <div id="in-line" class="line"><span id="ps"></span><input id="cmd" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" aria-label="command"></div>
+  </div>
+</div>
+<script>
+"use strict";
+const GRAPH = {"nodes":[["GLATRIX","root","r",0,0,0],["Agents + tooling","hub","ai",57.1,139.6,39.1],["MCP servers","leaf","ai",134.5,224.9,63.6],["tool calling","leaf","ai",60.2,288.9,31.0],["agent harnesses","leaf","ai",112.1,240.9,156.4],["OpenRouter","leaf","ai",149.0,231.9,-8.7],["Microsoft.Extensions.AI","leaf","ai",-1.1,265.1,91.8],["workflow designer","leaf","ai",188.0,199.3,120.7],["code knowledge graphs","leaf","ai",69.6,274.9,-50.7],["tree-sitter","leaf","ai",38.2,239.8,193.3],["Playwright","leaf","ai",202.4,190.2,9.8],["web scraping","leaf","ai",-30.0,250.2,16.3],["Local AI","hub","ai",-113.9,116.3,16.2],["llama.cpp","leaf","ai",-240.7,213.2,-4.7],["GGUF","leaf","ai",-204.9,197.6,90.5],["quantized KV cache","leaf","ai",-165.4,253.9,-22.2],["speculative decoding","leaf","ai",-245.4,141.0,21.3],["GPU offload","leaf","ai",-137.0,233.5,99.9],["Jinja templates","leaf","ai",-213.6,213.1,-86.4],["LLamaSharp","leaf","ai",-236.1,143.5,112.0],["Vulkan","leaf","ai",-103.5,286.4,13.2],["multimodal vision","leaf","ai",-299.6,151.5,-54.2],["llama.cpp in WASM","leaf","ai",-144.3,182.1,148.7],["OpenAI-compatible APIs","leaf","ai",-124.4,216.3,-89.4],["Machine learning","hub","ai",90.0,93.0,-109.6],["backpropagation","leaf","ai",147.9,156.6,-230.9],["Dense","leaf","ai",164.0,221.8,-174.1],["Conv2D","leaf","ai",207.2,120.2,-200.2],["SimpleRNN","leaf","ai",81.5,173.7,-218.2],["Dropout","leaf","ai",207.9,184.2,-117.4],["SGD","leaf","ai",145.0,90.6,-239.2],["genetic training","leaf","ai",83.0,218.2,-151.1],["embeddings","leaf","ai",252.8,118.2,-148.4],["top-k sampling","leaf","ai",68.9,139.4,-275.3],["transformer design","leaf","ai",158.7,215.5,-81.4],["Vulkan compute","leaf","ai",205.3,62.3,-223.4],["transformers.js","leaf","ai",28.2,202.3,-195.6],["MediaPipe","leaf","ai",255.6,155.5,-83.6],["Language tooling","hub","m",8.6,69.8,159.4],["lexer","leaf","m",51.6,103.0,286.6],["parser","leaf","m",-2.1,159.5,231.4],["AST","leaf","m",-26.9,70.7,338.6],["tree-walking runtime","leaf","m",110.6,146.5,260.6],["environments","leaf","m",-90.5,158.3,265.4],["language specs","leaf","m",61.6,33.2,300.8],["IR design","leaf","m",59.3,228.2,227.9],["GBNF grammars","leaf","m",-112.6,71.5,321.7],["AOT compilation","leaf","m",144.4,81.7,251.0],["Web","hub","m",-122.3,46.5,-119.8],["TypeScript","leaf","m",-228.4,105.7,-183.1],["Node.js","leaf","m",-180.8,83.4,-273.7],["React","leaf","m",-283.7,42.3,-184.3],["Vite","leaf","m",-198.3,169.9,-215.7],["Hono","leaf","m",-186.5,9.6,-264.9],["Three.js","leaf","m",-299.9,107.6,-125.7],["Monaco editor","leaf","m",-121.2,131.0,-276.2],["Blazor","leaf","m",-252.0,-21.5,-190.2],["WebAssembly","leaf","m",-217.8,181.6,-133.0],["Ink TUIs","leaf","m",-128.8,32.0,-326.1],["Services","hub","m",177.8,23.3,5.9],["REST clients","leaf","m",331.3,84.9,53.4],["SignalR","leaf","m",326.3,-35.6,13.3],["HttpListener","leaf","m",300.0,109.5,-70.1],["JSON models","leaf","m",269.4,29.6,127.4],["NuGet packages","leaf","m",294.9,-34.9,-96.4],[".NET","hub","m",-136.7,0.0,117.1],["C#","leaf","m",-283.2,28.8,198.3],[".NET 8","leaf","m",-238.8,-57.7,207.5],[".NET 9","leaf","m",-191.6,52.0,234.0],[".NET Framework","leaf","m",-305.6,-10.2,129.2],["WinForms","leaf","m",-182.6,-56.8,280.7],["P/Invoke","leaf","m",-256.7,103.3,185.7],["unsafe code","leaf","m",-266.1,-92.0,142.7],["Jint","leaf","m",-139.2,33.4,291.2],["hot reload","leaf","m",-309.9,52.7,92.8],["Graphics + engines","hub","g",21.5,-23.3,-176.6],["OpenGL","leaf","g",59.4,-78.4,-328.1],["GLSL","leaf","g",-22.2,-20.9,-328.6],["Silk.NET","leaf","g",113.2,-17.0,-301.2],["SSAO","leaf","g",-7.5,-111.1,-300.4],["bloom","leaf","g",10.2,41.2,-295.6],["ACES / AgX tonemapping","leaf","g",121.6,-83.4,-256.4],["OpenAL","leaf","g",-89.1,-59.9,-322.0],["Assimp","leaf","g",128.0,52.8,-329.4],["Godot 4","leaf","g",46.3,-156.2,-274.5],["GDScript","leaf","g",-68.3,42.2,-311.1],["Infra","hub","m",99.6,-46.5,139.3],["Docker","leaf","m",165.5,-112.8,223.1],["reverse proxies","leaf","m",221.5,-37.9,239.2],["Linux","leaf","m",112.6,-104.6,317.2],["SSH","leaf","m",246.1,-128.5,188.6],["game servers","leaf","m",165.7,5.7,287.0],["Java","leaf","m",113.5,-177.7,256.5],["Gradle","leaf","m",260.5,-37.8,166.5],["Python","leaf","m",69.3,-37.9,319.3],["self-hosting","leaf","m",209.5,-195.4,171.7],["Runtime internals","hub","r",-156.2,-69.8,-33.1],["CLR hosting","leaf","r",-274.4,-158.3,-25.0],["C++/CLI","leaf","r",-311.5,-64.8,-60.1],["Mono","leaf","r",-217.9,-164.3,-115.4],["IL2CPP","leaf","r",-295.0,-119.7,53.5],["metadata APIs","leaf","r",-306.7,-61.1,-168.4],["internal calls","leaf","r",-183.5,-196.4,-26.0],["Unity","leaf","r",-344.2,-29.6,20.0],["Process + IPC","hub","n",122.2,-93.0,-72.1],["DLL injection","leaf","n",250.1,-142.1,-174.8],["DLL proxying","leaf","n",254.1,-200.8,-53.7],["named pipes","leaf","n",150.3,-191.5,-209.1],["memory-mapped files","leaf","n",310.3,-93.9,-111.5],["x86 + x64","leaf","n",151.9,-242.1,-53.5],["virtual audio devices","leaf","n",184.9,-100.6,-249.4],["Native + hooks","hub","n",-33.6,-116.3,110.0],["C++","leaf","n",-48.8,-186.3,231.6],["C","leaf","n",-107.7,-202.0,146.6],["Win32","leaf","n",26.8,-238.6,206.0],["MSVC","leaf","n",-120.7,-155.5,249.6],["MinHook","leaf","n",-62.6,-242.6,95.1],["Kiero","leaf","n",30.5,-165.2,262.3],["Direct3D 11","leaf","n",-183.8,-179.3,168.2],["DXGI","leaf","n",44.0,-247.0,118.8],["Dear ImGui","leaf","n",-66.7,-110.3,283.5],["Bare metal","hub","n",-29.8,-139.6,-62.5],["x86 assembly","leaf","n",-41.9,-270.3,-67.3],["GRUB multiboot","leaf","n",-120.4,-231.6,-151.1],["kernel drivers","leaf","n",43.9,-257.0,-131.7],["linker scripts","leaf","n",-119.3,-254.6,-20.7],["network stack","leaf","n",-53.8,-180.5,-201.9],["framebuffer graphics","leaf","n",44.6,-259.0,-21.4],["Make","leaf","n",-179.9,-196.8,-90.7]],"edges":[[0,1,0],[1,2,0],[1,3,0],[1,4,0],[1,5,0],[1,6,0],[1,7,0],[1,8,0],[1,9,0],[1,10,0],[1,11,0],[0,12,0],[12,13,0],[12,14,0],[12,15,0],[12,16,0],[12,17,0],[12,18,0],[12,19,0],[12,20,0],[12,21,0],[12,22,0],[12,23,0],[0,24,0],[24,25,0],[24,26,0],[24,27,0],[24,28,0],[24,29,0],[24,30,0],[24,31,0],[24,32,0],[24,33,0],[24,34,0],[24,35,0],[24,36,0],[24,37,0],[0,38,0],[38,39,0],[38,40,0],[38,41,0],[38,42,0],[38,43,0],[38,44,0],[38,45,0],[38,46,0],[38,47,0],[0,48,0],[48,49,0],[48,50,0],[48,51,0],[48,52,0],[48,53,0],[48,54,0],[48,55,0],[48,56,0],[48,57,0],[48,58,0],[0,59,0],[59,60,0],[59,61,0],[59,62,0],[59,63,0],[59,64,0],[0,65,0],[65,66,0],[65,67,0],[65,68,0],[65,69,0],[65,70,0],[65,71,0],[65,72,0],[65,73,0],[65,74,0],[0,75,0],[75,76,0],[75,77,0],[75,78,0],[75,79,0],[75,80,0],[75,81,0],[75,82,0],[75,83,0],[75,84,0],[75,85,0],[0,86,0],[86,87,0],[86,88,0],[86,89,0],[86,90,0],[86,91,0],[86,92,0],[86,93,0],[86,94,0],[86,95,0],[0,96,0],[96,97,0],[96,98,0],[96,99,0],[96,100,0],[96,101,0],[96,102,0],[96,103,0],[0,104,0],[104,105,0],[104,106,0],[104,107,0],[104,108,0],[104,109,0],[104,110,0],[0,111,0],[111,112,0],[111,113,0],[111,114,0],[111,115,0],[111,116,0],[111,117,0],[111,118,0],[111,119,0],[111,120,0],[0,121,0],[121,122,0],[121,123,0],[121,124,0],[121,125,0],[121,126,0],[121,127,0],[121,128,0],[71,114,1],[98,112,1],[98,66,1],[97,67,1],[97,105,1],[100,112,1],[99,107,1],[99,66,1],[106,114,1],[108,66,1],[108,112,1],[62,100,1],[25,66,1],[33,13,1],[42,66,1],[22,57,1],[2,84,1],[9,40,1],[120,76,1],[122,116,1],[19,66,1],[35,77,1],[56,66,1],[78,66,1],[47,100,1],[46,13,1],[89,13,1],[92,91,1],[49,2,1]],"colors":{"ai":"#7ee8b2","m":"#6fd3ff","r":"#f6f4ec","n":"#ffb000","g":"#c49bff"}};
+const STACK = [["Agents + tooling","ai",["MCP servers","tool calling","agent harnesses","OpenRouter","Microsoft.Extensions.AI","workflow designer","code knowledge graphs","tree-sitter","Playwright","web scraping"]],["Local AI","ai",["llama.cpp","GGUF","quantized KV cache","speculative decoding","GPU offload","Jinja templates","LLamaSharp","Vulkan","multimodal vision","llama.cpp in WASM","OpenAI-compatible APIs"]],["Machine learning","ai",["backpropagation","Dense","Conv2D","SimpleRNN","Dropout","SGD","genetic training","embeddings","top-k sampling","transformer design","Vulkan compute","transformers.js","MediaPipe"]],["Language tooling","m",["lexer","parser","AST","tree-walking runtime","environments","language specs","IR design","GBNF grammars","AOT compilation"]],["Web","m",["TypeScript","Node.js","React","Vite","Hono","Three.js","Monaco editor","Blazor","WebAssembly","Ink TUIs"]],["Services","m",["REST clients","SignalR","HttpListener","JSON models","NuGet packages"]],[".NET","m",["C#",".NET 8",".NET 9",".NET Framework","WinForms","P/Invoke","unsafe code","Jint","hot reload"]],["Graphics + engines","g",["OpenGL","GLSL","Silk.NET","SSAO","bloom","ACES / AgX tonemapping","OpenAL","Assimp","Godot 4","GDScript"]],["Infra","m",["Docker","reverse proxies","Linux","SSH","game servers","Java","Gradle","Python","self-hosting"]],["Runtime internals","r",["CLR hosting","C++/CLI","Mono","IL2CPP","metadata APIs","internal calls","Unity"]],["Process + IPC","n",["DLL injection","DLL proxying","named pipes","memory-mapped files","x86 + x64","virtual audio devices"]],["Native + hooks","n",["C++","C","Win32","MSVC","MinHook","Kiero","Direct3D 11","DXGI","Dear ImGui"]],["Bare metal","n",["x86 assembly","GRUB multiboot","kernel drivers","linker scripts","network stack","framebuffer graphics","Make"]]];
+const DISCORD_ID = "888132698068119603";
+const COLORS = {ai:"#7ee8b2", m:"#6fd3ff", r:"#f6f4ec", n:"#ffb000", g:"#c49bff"};
+
+const out = document.getElementById("out"), cmd = document.getElementById("cmd");
+const term = document.getElementById("term"), ps = document.getElementById("ps");
+const PROMPT = '<span class="u">glatrix@voiderland</span><span class="h">:~$</span> ';
+ps.innerHTML = PROMPT;
+
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+function scroll() { term.scrollTop = term.scrollHeight; }
+function print(html = "", cls = "") {
+  const d = document.createElement("div");
+  d.className = "line" + (cls ? " " + cls : "");
+  d.innerHTML = html;
+  out.appendChild(d); scroll(); return d;
+}
+function block(el) { out.appendChild(el); scroll(); return el; }
+
+// A "program" owns the keyboard until it exits (Ctrl+C, Esc or q).
+let program = null;
+function startProgram(p) { program = p; document.getElementById("in-line").style.display = "none"; }
+function endProgram() {
+  if (!program) return;
+  const p = program; program = null;
+  try { p.stop && p.stop(); } catch (e) {}
+  document.getElementById("in-line").style.display = "";
+  cmd.focus(); scroll();
+}
+let liveGraph = null;
+
+// ------------------------------------------------------------- commands
+const ABOUT = [
+  "Most of what I build lives on the boundary between managed and native code:",
+  "hosting the CLR inside other processes, reading engine metadata at runtime,",
+  "hooking render calls, and moving data between C++ and C#.",
+  "",
+  "Lately I've been climbing the stack: neural nets from scratch, local LLMs on",
+  "my own hardware, agent tooling, a game engine, and a toy OS on bare metal.",
+  "",
+  "If I don't understand a thing, I end up rewriting it.",
+];
+const FILES = {
+  "about.txt": () => ABOUT.forEach(l => print(esc(l))),
+  "contact.txt": () => {
+    print('discord   <a href="https://discord.com/users/' + DISCORD_ID + '" target="_blank" rel="noopener">glatrix</a> <span class="muted">(run discord for live status)</span>');
+    print('github    <a href="https://github.com/Glatrix" target="_blank" rel="noopener">github.com/Glatrix</a>');
+  },
+  "stack.txt": () => stack(),
+  ".plan": () => { print("1. research for at least 8 hours"); print("2. function"); },
+};
+
+const COMMANDS = {
+  help:        ["list commands", help],
+  whoami:      ["who is this", whoami],
+  about:       ["the longer version", () => FILES["about.txt"]()],
+  stack:       ["everything I work with, as a tree", stack],
+  graph:       ["3D knowledge graph you can drag and zoom", graph],
+  neofetch:    ["system info, except the system is me", neofetch],
+  neural:      ["neural net panel", () => panel("neural")],
+  vision:      ["computer vision panel", () => panel("vision")],
+  market:      ["market forecasting panel", () => panel("market")],
+  hook:        ["trampoline hook panel", () => panel("hook")],
+  discord:     ["live Discord profile", discord],
+  github:      ["live GitHub stats", github],
+  donut:       ["a spinning torus in ASCII", donut],
+  hackertyper: ["mash keys, look busy", hackertyper],
+  matrix:      ["falling bytes", matrix],
+  hexdump:     ["hexdump <text>", hexdump],
+  ls:          ["list files", ls],
+  cat:         ["cat <file>", cat],
+  echo:        ["echo <text>", a => print(esc(a.join(" ")))],
+  date:        ["current date", () => print(esc(new Date().toString()))],
+  history:     ["command history", () => hist.forEach((h, i) => print('<span class="muted">' + String(i + 1).padStart(4) + "</span>  " + esc(h)))],
+  clear:       ["clear the screen", () => { out.innerHTML = ""; }],
+};
+const HIDDEN = {
+  sudo: () => print('<span class="red">glatrix is not in the sudoers file.</span> This incident will be reported to the Noll Pointerville PD.'),
+  exit: () => print("there is no exit. only segfaults."),
+  rm: a => print(a.join(" ").includes("-rf") ? '<span class="red">Segmentation fault (core dumped)</span> <span class="muted">just kidding.</span>' : "rm: nice try"),
+  vim: () => print("you are now trapped in vim. type :q to... no, that won't work here either."),
+  cd: () => print("there is nowhere else. this is Voiderland."),
+  pwd: () => print("/home/glatrix"),
+  hello: () => print("hi :)"),
+};
+
+function help() {
+  print('<span class="muted">commands</span>');
+  const g = document.createElement("div"); g.className = "grid";
+  for (const [name, [desc]] of Object.entries(COMMANDS))
+    g.innerHTML += '<span class="ice b">' + name + '</span><span class="muted">' + esc(desc) + "</span>";
+  block(g);
+  print('<span class="muted">tab completes, arrows walk history, ctrl+c stops a running program.</span>');
+}
+function whoami() {
+  print('<span class="b">glatrix</span> <span class="muted">from Noll Pointerville, Voiderland</span>');
+  print("C# and C++ developer, mostly where they meet. Needs at least 8 hours of research to function.");
+  print('<span class="muted">try</span> <span class="ice">about</span><span class="muted">,</span> <span class="ice">stack</span> <span class="muted">or</span> <span class="ice">graph</span>');
+}
+function ls(args) {
+  const all = args.includes("-a") || args.includes("-la");
+  print(Object.keys(FILES).filter(f => all || !f.startsWith(".")).map(f => '<span class="ice">' + f + "</span>").join("   "));
+}
+function cat(args) {
+  const f = args[0];
+  if (!f) return print("cat: which file? try ls");
+  if (FILES[f]) return FILES[f]();
+  print("cat: " + esc(f) + ": No such file or directory");
+}
+function stack() {
+  print('<span class="hot b">GLATRIX</span>');
+  STACK.forEach(([hub, dom, leaves], i) => {
+    const last = i === STACK.length - 1;
+    print('<span class="muted">' + (last ? "└─ " : "├─ ") + '</span><span class="b" style="color:' + COLORS[dom] + '">' + esc(hub) + "</span>");
+    print('<span class="muted">' + (last ? "   " : "│  ") + "   </span>" + leaves.map(esc).join('<span class="muted"> · </span>'));
+  });
+}
+function panel(name) {
+  const d = document.createElement("div"); d.className = "panel";
+  d.innerHTML = '<img src="assets/' + name + '.svg" alt="' + name + ' panel">';
+  block(d);
+  d.querySelector("img").onload = scroll;
+}
+function hexdump(args) {
+  const txt = args.join(" ") || "Noll Pointerville";
+  const bytes = new TextEncoder().encode(txt);
+  for (let i = 0; i < bytes.length; i += 16) {
+    const row = Array.from(bytes.slice(i, i + 16));
+    const hx = row.map(b => b.toString(16).padStart(2, "0").toUpperCase()).join(" ").padEnd(47);
+    const asc = row.map(b => b >= 32 && b < 127 ? String.fromCharCode(b) : ".").join("");
+    print('<span class="muted">' + i.toString(16).padStart(8, "0").toUpperCase() + '</span>  <span class="amber">' + hx + '</span>  <span class="ice">' + esc(asc) + "</span>");
+  }
+}
+function neofetch() {
+  const art = [
+    "    /\\_/\\    ",
+    "   ( o.o )   ",
+    "    > ^ <    ",
+    "   /     \\   ",
+    "  (  | |  )  ",
+    "   \\_|_|_/   ",
+  ];
+  const info = [
+    ['<span class="mint b">glatrix</span><span class="muted">@</span><span class="mint b">voiderland</span>', ""],
+    ['<span class="muted">-------------------</span>', ""],
+    ["location", "Noll Pointerville, Voiderland"],
+    ["languages", "C#, C++, C, TypeScript, Java, Python"],
+    ["focus", "runtime internals, local AI, engines"],
+    ["inference", "llama.cpp, mostly on my own hardware"],
+    ["github since", "2020"],
+    ["uptime", "8 hours of research, minimum"],
+    ["shell", "you're looking at it"],
+  ];
+  const rows = Math.max(art.length, info.length);
+  for (let i = 0; i < rows; i++) {
+    const a = art[i] || " ".repeat(13);
+    const [k, v] = info[i] || ["", ""];
+    const right = v ? '<span class="ice b">' + k + '</span><span class="muted">: </span>' + esc(v) : k;
+    print('<span class="amber">' + esc(a) + "</span>  " + right);
+  }
+  print("               " + ["#ffb000", "#f6f4ec", "#6fd3ff", "#7ee8b2", "#c49bff", "#ff6b6b", "#2b3442"].map(c => '<span style="color:' + c + '">███</span>').join(""));
+}
+
+async function discord() {
+  const line = print('<span class="muted">asking Lanyard for live presence...</span>');
+  const link = "https://discord.com/users/" + DISCORD_ID;
+  try {
+    const r = await fetch("https://api.lanyard.rest/v1/users/" + DISCORD_ID);
+    const j = await r.json();
+    if (!j.success) throw new Error((j.error && j.error.message) || "not tracked");
+    const d = j.data, u = d.discord_user;
+    const av = u.avatar
+      ? "https://cdn.discordapp.com/avatars/" + u.id + "/" + u.avatar + "." + (u.avatar.startsWith("a_") ? "gif" : "png") + "?size=128"
+      : "https://cdn.discordapp.com/embed/avatars/0.png";
+    const statusColor = {online:"#3ba55d", idle:"#faa81a", dnd:"#ed4245", offline:"#747f8d"}[d.discord_status] || "#747f8d";
+    const custom = (d.activities || []).find(a => a.type === 4);
+    const act = (d.activities || []).find(a => a.type !== 4);
+    let doing = custom && custom.state ? esc(custom.state) : "";
+    if (d.listening_to_spotify && d.spotify) doing = "listening to " + esc(d.spotify.song) + " by " + esc(d.spotify.artist);
+    else if (act) doing = (act.type === 0 ? "playing " : "") + esc(act.name) + (act.details ? " · " + esc(act.details) : "");
+    line.outerHTML = "";
+    const a = document.createElement("a");
+    a.className = "card"; a.href = link; a.target = "_blank"; a.rel = "noopener";
+    a.innerHTML = '<span class="av"><img src="' + av + '" alt=""><i style="background:' + statusColor + '"></i></span>' +
+      '<span><div class="nm">' + esc(u.global_name || u.username) + '</div><div class="sub">@' + esc(u.username) + " · " + esc(d.discord_status) + "</div>" +
+      (doing ? '<div class="sub" style="color:var(--text);margin-top:4px">' + doing + "</div>" : "") + "</span>";
+    block(a);
+  } catch (e) {
+    line.innerHTML = '<span class="muted">live presence unavailable right now.</span>';
+    const a = document.createElement("a");
+    a.className = "card"; a.href = link; a.target = "_blank"; a.rel = "noopener";
+    a.innerHTML = '<span><div class="nm">glatrix</div><div class="sub">open my Discord profile</div></span>';
+    block(a);
+  }
+}
+async function github() {
+  const line = print('<span class="muted">GET api.github.com/users/Glatrix</span>');
+  try {
+    const u = await (await fetch("https://api.github.com/users/Glatrix")).json();
+    if (!u.login) throw new Error(u.message || "no data");
+    const rows = [["repos", u.public_repos], ["followers", u.followers], ["following", u.following],
+                  ["joined", new Date(u.created_at).getFullYear()], ["location", u.location]];
+    line.remove();
+    rows.forEach(([k, v]) => print('<span class="ice b">' + k.padEnd(10) + "</span> " + esc(v)));
+    print('<a href="https://github.com/Glatrix" target="_blank" rel="noopener">github.com/Glatrix</a>');
+  } catch (e) { line.innerHTML = '<span class="muted">GitHub API unavailable (' + esc(e.message) + ")</span>"; }
+}
+
+// ------------------------------------------------------------- programs
+function donutText(A, B, W, H) {
+  const R1 = 1, R2 = 2, K2 = 5, K1 = W * K2 * 3 / (8 * (R1 + R2));
+  const outc = new Array(W * H).fill(" "), zb = new Float32Array(W * H);
+  const cA = Math.cos(A), sA = Math.sin(A), cB = Math.cos(B), sB = Math.sin(B);
+  for (let th = 0; th < 6.2832; th += 0.07) {
+    const ct = Math.cos(th), st = Math.sin(th);
+    for (let ph = 0; ph < 6.2832; ph += 0.02) {
+      const cp = Math.cos(ph), sp = Math.sin(ph);
+      const ox = R2 + R1 * ct, oy = R1 * st;
+      const x = ox * (cB * cp + sA * sB * sp) - oy * cA * sB;
+      const y = ox * (sB * cp - sA * cB * sp) + oy * cA * cB;
+      const ooz = 1 / (K2 + cA * ox * sp + oy * sA);
+      const xp = (W / 2 + K1 * ooz * x) | 0, yp = (H / 2 - K1 * ooz * y * 0.5) | 0;
+      const L = cp * ct * sB - cA * ct * sp - sA * st + cB * (cA * st - ct * sA * sp);
+      if (L > 0 && xp >= 0 && xp < W && yp >= 0 && yp < H) {
+        const o = xp + W * yp;
+        if (ooz > zb[o]) { zb[o] = ooz; outc[o] = ".,-~:;=!*#$@"[Math.min(11, (L * 8) | 0)]; }
+      }
+    }
+  }
+  let s = "";
+  for (let r = 0; r < H; r++) s += outc.slice(r * W, r * W + W).join("") + "\n";
+  return s;
+}
+function donut() {
+  const pre = block(Object.assign(document.createElement("pre"), {className: "art"}));
+  print('<span class="muted">ctrl+c or q to stop</span>');
+  let A = 1, B = 0.5, alive = true;
+  (function tick() {
+    if (!alive) return;
+    pre.textContent = donutText(A, B, 64, 26);
+    A += 0.06; B += 0.025;
+    setTimeout(() => requestAnimationFrame(tick), 33);
+  })();
+  startProgram({stop() { alive = false; print('<span class="muted">^C</span>'); }});
+}
+
+const HACK = `// trampoline.cpp: detour a function and keep a way back
+#include <windows.h>
+#include <cstdint>
+#include <cstring>
+
+struct Trampoline {
+    uint8_t* target;
+    uint8_t* gateway;
+    uint8_t  stolen[16];
+    size_t   length;
+};
+
+static void write_jmp(uint8_t* at, const void* dest) {
+    int32_t rel = (int32_t)((const uint8_t*)dest - (at + 5));
+    at[0] = 0xE9;                         // jmp rel32
+    std::memcpy(at + 1, &rel, sizeof rel);
+}
+
+bool install(Trampoline& t, void* target, void* hook, size_t length) {
+    if (length < 5) return false;         // a rel32 jmp needs five bytes
+    t.target = (uint8_t*)target;
+    t.length = length;
+    std::memcpy(t.stolen, target, length);
+
+    // allocate within +-2GB so rel32 can reach both ways
+    t.gateway = (uint8_t*)VirtualAlloc(nullptr, 64, MEM_COMMIT | MEM_RESERVE,
+                                       PAGE_EXECUTE_READWRITE);
+    if (!t.gateway) return false;
+    std::memcpy(t.gateway, t.stolen, length);
+    write_jmp(t.gateway + length, t.target + length);
+
+    DWORD old;
+    VirtualProtect(target, length, PAGE_EXECUTE_READWRITE, &old);
+    write_jmp(t.target, hook);
+    std::memset(t.target + 5, 0x90, length - 5);   // pad with nops
+    VirtualProtect(target, length, old, &old);
+    FlushInstructionCache(GetCurrentProcess(), target, length);
+    return true;
+}
+
+void uninstall(Trampoline& t) {
+    DWORD old;
+    VirtualProtect(t.target, t.length, PAGE_EXECUTE_READWRITE, &old);
+    std::memcpy(t.target, t.stolen, t.length);
+    VirtualProtect(t.target, t.length, old, &old);
+    VirtualFree(t.gateway, 0, MEM_RELEASE);
+}
+
+// ; and the same idea one level down, in raw x64
+//   mov  [rsp+10h], rbx        ; stolen
+//   jmp  qword ptr [rip+0]     ; back to target+5
+//   dq   target+5
+
+int main() {
+    Trampoline t{};
+    // pick a target, write a hook, call install(), draw something nice.
+    return 0;
+}
+`;
+function hackertyper() {
+  const pre = block(Object.assign(document.createElement("pre"), {className: "code"}));
+  const hint = print('<span class="muted">type anything. esc to stop.</span>');
+  let i = 0, granted = false;
+  const onKey = e => {
+    if (e.key === "Escape" || (e.ctrlKey && e.key === "c")) return;
+    e.preventDefault();
+    i += 4;
+    pre.textContent = HACK.repeat(4).slice(0, i) + "█";
+    pre.scrollTop = pre.scrollHeight;
+    if (!granted && i > 900) {
+      granted = true;
+      const g = document.createElement("div"); g.innerHTML = '<span class="granted">ACCESS GRANTED</span>'; block(g);
+    }
+    scroll();
+  };
+  window.addEventListener("keydown", onKey);
+  startProgram({isTyper: true, stop() { window.removeEventListener("keydown", onKey); hint.innerHTML = '<span class="muted">^C</span>'; }});
+}
+function matrix() {
+  const c = block(document.createElement("canvas"));
+  const W = Math.min(out.clientWidth, 900), H = 340, dpr = window.devicePixelRatio || 1;
+  c.width = W * dpr; c.height = H * dpr; c.style.width = W + "px"; c.style.height = H + "px";
+  const ctx = c.getContext("2d"); ctx.scale(dpr, dpr);
+  const cw = 22, cols = Math.floor(W / cw), drops = Array.from({length: cols}, () => Math.random() * -40);
+  ctx.fillStyle = "#0a0c10"; ctx.fillRect(0, 0, W, H);
+  print('<span class="muted">ctrl+c or q to stop</span>');
+  let alive = true;
+  (function tick() {
+    if (!alive) return;
+    ctx.fillStyle = "rgba(10,12,16,.16)"; ctx.fillRect(0, 0, W, H);
+    ctx.font = "700 13px CM, monospace";
+    drops.forEach((y, k) => {
+      const byte = (Math.random() * 256 | 0).toString(16).padStart(2, "0").toUpperCase();
+      ctx.fillStyle = k / cols < 0.5 ? (Math.random() < .1 ? "#fff" : "#ffb000") : (Math.random() < .1 ? "#fff" : "#6fd3ff");
+      ctx.fillText(byte, k * cw, y * 16);
+      drops[k] = y * 16 > H && Math.random() > 0.96 ? 0 : y + 1;
+    });
+    setTimeout(() => requestAnimationFrame(tick), 45);
+  })();
+  startProgram({stop() { alive = false; }});
+}
+
+// ------------------------------------------------------------- interactive 3D graph
+function graph() {
+  if (liveGraph) liveGraph.stop();
+  const wrap = block(document.createElement("div"));
+  wrap.className = "panel";
+  const c = document.createElement("canvas"); wrap.appendChild(c);
+  const hint = document.createElement("div"); hint.className = "hint";
+  hint.textContent = "drag to orbit, scroll or pinch to zoom, hover a node to light up its links";
+  wrap.appendChild(hint);
+  const ctx = c.getContext("2d");
+  const N = GRAPH.nodes, E = GRAPH.edges;
+  const adj = N.map(() => new Set());
+  E.forEach(([a, b]) => { adj[a].add(b); adj[b].add(a); });
+  let W = 0, H = 0, yaw = 0.4, pitch = 0.23, zoom = 1, drag = null, mx = -1, my = -1, idle = 9, alive = true, last = performance.now();
+  const pointers = new Map(); let pinch = 0;
+  function size() {
+    const dpr = window.devicePixelRatio || 1;
+    W = Math.min(out.clientWidth, 900); H = Math.round(W * 0.78);
+    c.width = W * dpr; c.height = H * dpr; c.style.width = W + "px"; c.style.height = H + "px";
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+  size(); window.addEventListener("resize", size);
+  c.addEventListener("pointerdown", e => {
+    pointers.set(e.pointerId, [e.clientX, e.clientY]);
+    c.setPointerCapture(e.pointerId);
+    if (pointers.size === 1) drag = {x: e.clientX, y: e.clientY, yaw, pitch};
+    idle = 0;
+  });
+  c.addEventListener("pointermove", e => {
+    const r = c.getBoundingClientRect(); mx = e.clientX - r.left; my = e.clientY - r.top;
+    if (pointers.has(e.pointerId)) pointers.set(e.pointerId, [e.clientX, e.clientY]);
+    if (pointers.size === 2) {
+      const [p, q] = [...pointers.values()], dist = Math.hypot(p[0] - q[0], p[1] - q[1]);
+      if (pinch) zoom = clamp(zoom * dist / pinch, 0.5, 2.8);
+      pinch = dist; drag = null;
+    } else if (drag) {
+      yaw = drag.yaw + (e.clientX - drag.x) * 0.008;
+      pitch = clamp(drag.pitch + (e.clientY - drag.y) * 0.006, -1.2, 1.2);
+      idle = 0;
+    }
+  });
+  const up = e => { pointers.delete(e.pointerId); pinch = 0; if (!pointers.size) drag = null; };
+  c.addEventListener("pointerup", up); c.addEventListener("pointercancel", up);
+  c.addEventListener("pointerleave", () => { mx = my = -1; });
+  c.addEventListener("wheel", e => { e.preventDefault(); zoom = clamp(zoom * Math.exp(-e.deltaY * 0.0012), 0.5, 2.8); idle = 0; }, {passive: false});
+
+  function frame(now) {
+    if (!alive) return;
+    const dt = Math.min(0.05, (now - last) / 1000); last = now; idle += dt;
+    if (!drag && idle > 1.2) yaw += dt * 0.16;
+    const k = W / 900 * zoom, persp = 1250, cy = Math.cos(yaw), sy = Math.sin(yaw), cp = Math.cos(pitch), sp = Math.sin(pitch);
+    const P = N.map(([, , , x, y, z]) => {
+      const x1 = x * cy + z * sy, z1 = -x * sy + z * cy;
+      const y2 = -y * cp + z1 * sp, z2 = y * sp + z1 * cp;
+      const s = persp / (persp - z2);
+      return {x: W / 2 + x1 * s * k, y: H / 2 + y2 * s * k, s, d: clamp((z2 + 360) / 720, 0, 1), z: z2};
+    });
+    let hover = -1, best = 14;
+    if (mx >= 0) P.forEach((p, i) => { const dd = Math.hypot(p.x - mx, p.y - my); if (dd < best) { best = dd; hover = i; } });
+    c.style.cursor = drag ? "grabbing" : hover >= 0 ? "pointer" : "grab";
+    const lit = hover >= 0 ? new Set([hover, ...adj[hover]]) : null;
+
+    ctx.fillStyle = "#0a0c10"; ctx.fillRect(0, 0, W, H);
+    const g = ctx.createRadialGradient(W / 2, H / 2, 0, W / 2, H / 2, W * 0.45);
+    g.addColorStop(0, "rgba(255,217,160,.13)"); g.addColorStop(.5, "rgba(111,211,255,.04)"); g.addColorStop(1, "rgba(0,0,0,0)");
+    ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+
+    for (const [a, b, cross] of E) {
+      const pa = P[a], pb = P[b];
+      const on = lit && (a === hover || b === hover);
+      let alpha = cross ? 0.04 + 0.4 * (pa.d + pb.d) / 2 : 0.06 + 0.5 * (pa.d + pb.d) / 2;
+      if (lit) alpha = on ? 0.95 : alpha * 0.25;
+      ctx.strokeStyle = cross ? "#f6f4ec" : COLORS[N[b][2]];
+      ctx.globalAlpha = alpha;
+      ctx.lineWidth = on ? 2 : (a === 0 ? 1.5 : 1);
+      ctx.setLineDash(cross ? [3, 6] : []);
+      ctx.beginPath(); ctx.moveTo(pa.x, pa.y); ctx.lineTo(pb.x, pb.y); ctx.stroke();
+    }
+    ctx.setLineDash([]);
+    const order = P.map((p, i) => i).sort((i, j) => P[i].z - P[j].z);
+    for (const i of order) {
+      const p = P[i], [, kind, dom] = N[i];
+      const r = (kind === "root" ? 11 : kind === "hub" ? 7 : 3.8) * Math.pow(p.s, 0.85) * Math.sqrt(zoom);
+      ctx.globalAlpha = lit ? (lit.has(i) ? 1 : 0.15) : (kind === "root" ? 1 : 0.22 + 0.78 * p.d);
+      ctx.fillStyle = COLORS[dom];
+      ctx.beginPath(); ctx.arc(p.x, p.y, r, 0, 6.2832); ctx.fill();
+      if (kind === "hub") { ctx.strokeStyle = COLORS[dom]; ctx.globalAlpha *= .5; ctx.beginPath(); ctx.arc(p.x, p.y, r + 5, 0, 6.2832); ctx.stroke(); }
+    }
+    // labels, placed in priority order and skipped when they would collide
+    const rank = i => { const [name, kind] = N[i];
+      if (lit && lit.has(i)) return i === hover ? -2 : -1;
+      return kind === "root" ? 0 : kind === "hub" ? 1 : (name === "C#" || name === "C++" || name === "C") ? 2 : 3; };
+    const cand = P.map((p, i) => i).filter(i => lit ? lit.has(i) || N[i][1] !== "leaf" || P[i].d > .62 : N[i][1] !== "leaf" || P[i].d > .45)
+      .sort((i, j) => rank(i) - rank(j) || P[j].z - P[i].z);
+    const placed = [];
+    ctx.textAlign = "center";
+    for (const i of cand) {
+      const p = P[i], [name, kind, dom] = N[i];
+      const fs = (kind === "root" ? 15 : kind === "hub" ? 13.5 : 11.5) * Math.pow(p.s, 0.85) * Math.min(1.25, Math.sqrt(zoom));
+      ctx.font = (kind !== "leaf" || i === hover ? "700 " : "400 ") + fs.toFixed(1) + "px CM, monospace";
+      const w = ctx.measureText(name).width / 2 + 4, h = fs * 0.62 + 2;
+      const ly = p.y + (kind === "root" ? 26 : kind === "hub" ? 22 : 15) * Math.pow(p.s, 0.85) * Math.sqrt(zoom);
+      if (placed.some(([x, y, pw, ph]) => Math.abs(x - p.x) < w + pw && Math.abs(y - ly) < h + ph)) continue;
+      placed.push([p.x, ly, w, h]);
+      ctx.globalAlpha = lit ? (lit.has(i) ? 1 : 0.2) : kind === "leaf" ? clamp((p.d - .45) / .25, 0, 1) : 0.4 + 0.6 * p.d;
+      ctx.lineWidth = 3.5; ctx.strokeStyle = "#0a0c10"; ctx.lineJoin = "round";
+      ctx.strokeText(name, p.x, ly + fs * 0.35);
+      ctx.fillStyle = kind === "leaf" && i !== hover ? "#dfe6ec" : COLORS[dom];
+      ctx.fillText(name, p.x, ly + fs * 0.35);
+    }
+    ctx.globalAlpha = 1; ctx.textAlign = "left"; ctx.font = "400 12px CM, monospace"; ctx.fillStyle = "#7d8794";
+    ctx.fillText(N.length + " nodes  " + E.length + " edges", 14, H - 14);
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+  liveGraph = {stop() { alive = false; window.removeEventListener("resize", size); }};
+}
+
+// ------------------------------------------------------------- shell
+const hist = []; let hpos = 0;
+const NAMES = [...Object.keys(COMMANDS)];
+function run(line) {
+  print(PROMPT + '<span class="b">' + esc(line) + "</span>");
+  const parts = line.trim().split(/\s+/).filter(Boolean);
+  if (!parts.length) return;
+  hist.push(line.trim()); hpos = hist.length;
+  const [name, ...args] = parts;
+  const c = COMMANDS[name.toLowerCase()];
+  try {
+    if (c) c[1](args);
+    else if (HIDDEN[name.toLowerCase()]) HIDDEN[name.toLowerCase()](args);
+    else print(esc(name) + ': command not found. try <span class="ice">help</span>');
+  } catch (e) { print('<span class="red">' + esc(e.message) + "</span>"); }
+  scroll();
+}
+cmd.addEventListener("keydown", e => {
+  if (program) return;
+  if (e.key === "Enter") { const v = cmd.value; cmd.value = ""; run(v); }
+  else if (e.key === "ArrowUp") { e.preventDefault(); if (hpos > 0) cmd.value = hist[--hpos]; }
+  else if (e.key === "ArrowDown") { e.preventDefault(); hpos = Math.min(hist.length, hpos + 1); cmd.value = hist[hpos] || ""; }
+  else if (e.key === "Tab") {
+    e.preventDefault();
+    const v = cmd.value.trim(), m = NAMES.filter(n => n.startsWith(v));
+    if (m.length === 1) cmd.value = m[0] + " ";
+    else if (m.length > 1) { print(PROMPT + esc(cmd.value)); print(m.map(n => '<span class="ice">' + n + "</span>").join("  ")); }
+  }
+  else if (e.ctrlKey && e.key.toLowerCase() === "l") { e.preventDefault(); out.innerHTML = ""; }
+  else if (e.ctrlKey && e.key.toLowerCase() === "c" && !window.getSelection().toString()) { print(PROMPT + esc(cmd.value) + "^C"); cmd.value = ""; }
+});
+window.addEventListener("keydown", e => {
+  if (!program) return;
+  const quit = e.key === "Escape" || (e.ctrlKey && e.key.toLowerCase() === "c") || (e.key === "q" && !program.isTyper);
+  if (quit) { e.preventDefault(); endProgram(); }
+});
+term.addEventListener("click", () => { if (!window.getSelection().toString() && !program) cmd.focus(); });
+
+(async function boot() {
+  const lines = [
+    '<span class="muted">glatrix terminal, build 0x00000000</span>',
+    '<span class="muted">attaching to</span> voiderland <span class="mint">ok</span>',
+    '<span class="muted">mapping</span> ' + GRAPH.nodes.length + ' <span class="muted">nodes of knowledge</span> <span class="mint">ok</span>',
+    "",
+    'type <span class="ice b">help</span> to see what\'s here. <span class="muted">try</span> <span class="ice">graph</span><span class="muted">,</span> <span class="ice">donut</span> <span class="muted">or</span> <span class="ice">hackertyper</span>.',
+    "",
+  ];
+  for (const l of lines) { print(l); await sleep(90); }
+  cmd.focus();
+  const auto = decodeURIComponent((location.hash || "").slice(1));
+  if (auto && (COMMANDS[auto.split(" ")[0]])) run(auto);
+})();
+</script>
+</body>
+</html>
