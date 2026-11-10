@@ -7,6 +7,3 @@
 <p align="center">
   <img src="assets/neural.svg" width="100%" alt="Neural nets in plain C#, with no frameworks: a network running forward and backward passes, a loss curve falling over epochs, and a top-k sampler choosing the next token.">
 </p>
-<p align="center">
-  <img src="assets/void.svg" width="100%" alt="I only fear God.   (and sometimes linker errors)">
-</p>
